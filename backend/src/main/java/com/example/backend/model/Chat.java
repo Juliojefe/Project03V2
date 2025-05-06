@@ -22,6 +22,11 @@ public class Chat {
 
     public Chat() {}
 
+    public Chat(int userOneId, int userTwoId) {
+        this.userOneId = userOneId;
+        this.userTwoId = userTwoId;
+    }
+
     public int getChatId() {
         return chatId;
     }
