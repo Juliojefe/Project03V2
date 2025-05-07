@@ -30,8 +30,13 @@ public class ChatController {
         return chatService.deleteChatById(chatId);
     }
 
-    @PutMapping()
-    public int createChat(@RequestParam int userOneId, @RequestParam int userTwoId) {
+    @PostMapping("/userOneId/{userOneId}/userTwoId/{userTwoId}")
+    public int createChat(@PathVariable int userOneId, @PathVariable int userTwoId) {
         return chatService.createChat(userOneId, userTwoId);
+    }
+
+    @GetMapping("/")
+    public List<Chat> getAllChats() {
+        return chatService.getAllChats();
     }
 }

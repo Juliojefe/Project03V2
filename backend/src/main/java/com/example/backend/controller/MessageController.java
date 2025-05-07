@@ -22,8 +22,13 @@ public class MessageController {
         return messageService.getChatMessages(chatId);
     }
 
-    @PostMapping()
-    public int sendMessage(@RequestParam String content, @RequestParam int userId, @RequestParam int chatId) {
+    @GetMapping("/")
+    public List<MessageDTO> getAllMessages() {
+        return messageService.getAllMessages();
+    }
+
+    @PostMapping("/content/{content}/userId/{userId}/chatId/{chatId}")
+    public int sendMessage(@PathVariable String content, @PathVariable int userId, @PathVariable int chatId) {
         return messageService.sendNewMessage(content, userId, chatId);
     }
 
@@ -37,8 +42,8 @@ public class MessageController {
         return messageService.deleteMessage(messageId);
     }
 
-    @PostMapping("/with-image")
-    public int sendMessageWithImage(@RequestParam String content, @RequestParam int userId, @RequestParam int chatId, @RequestParam String imageUrl) {
+    @PostMapping("/with-image/content/{content}/userId/{userId}/chatId/{chatId}/imageUrl/{imageUrl}")
+    public int sendMessageWithImage(@PathVariable String content, @PathVariable int userId, @PathVariable int chatId, @PathVariable String imageUrl) {
         return messageService.sendNewMessageWithImage(content, userId, chatId, imageUrl);
     }
 

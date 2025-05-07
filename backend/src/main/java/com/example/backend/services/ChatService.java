@@ -43,4 +43,8 @@ public class ChatService {
         }
         return false;
     }
+
+    public List<Chat> getAllChats() {
+        return chatRepository.findAll();
+    }
 }
