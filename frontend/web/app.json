@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "./index.ts",
     "name": "web",
     "slug": "web",
     "version": "1.0.0",

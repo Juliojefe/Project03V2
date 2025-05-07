@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar";
 import { Text, View } from "react-native";
 
 export default function Index() {
@@ -9,7 +10,8 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+        <Navbar></Navbar>
+        <Text>Edit app/index.tsx to edit this screen.</Text>
     </View>
   );
 }
