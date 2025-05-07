@@ -1,36 +1,21 @@
-package com.example.backend.model;
+package com.example.backend.dto;
 
-import jakarta.persistence.*;
+import com.example.backend.enums.RelatedType;
+import com.example.backend.model.Image;
+
 import java.sql.Timestamp;
+import java.util.List;
 
-@Entity
-@Table(name = "message")
-public class Message {
+public class MessageDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "message_id")
     private int messageId;
-
-    @Column(name = "content")
     private String content;
-
-    @Column(name = "user_id")
     private int userId;
-
-    @Column(name = "chat_id")
     private int chatId;
-
-    @Column(name = "created_at", insertable = false, updatable = false)
     private Timestamp createdAt;
+    private List<Image> images;
 
-    public Message (String content, int userId, int chatId) {
-        this.content = content;
-        this.userId = userId;
-        this.chatId = chatId;
-    }
-
-    public Message() {}
+    public MessageDTO() {}
 
     public int getMessageId() {
         return messageId;
@@ -68,4 +53,15 @@ public class Message {
         return createdAt;
     }
 
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
 }
